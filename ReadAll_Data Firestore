@@ -1,0 +1,18 @@
+const DataBase= async() =>{
+    
+    const querySnapshot =await getDocs(collection(db, "ProductData"));
+    querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        });
+
+}
+
+
+  return (
+    <div>
+        <button onClick={DataBase}> XXY</button>
+    </div>
+  )
+}
+
+export default ProductData
