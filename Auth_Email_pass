@@ -1,0 +1,28 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
+import React from "react";
+import {auth} from './FirebaseImports'
+
+
+
+export const AuthContext = () => {
+
+const signInFunction = async()=>{
+    await signInWithEmailAndPassword(auth, 'lado.merabiashvili@gmail.com', '1234567890')
+      .then((userCredential) => {
+        // Signed in 
+         const user = userCredential.user;
+        // ...
+        console.log(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage)
+      });}
+
+  return (
+    <div>
+        <button onClick={signInFunction}> xx</button>
+    </div>
+  )
+}
